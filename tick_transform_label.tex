@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+	\begin{axis}[xlabel = Subspace dimension $m$, ylabel = Angle,
+		xmin = 2, xtick = {0, 10, ..., 100},
+		y filter/.code = {\pgfmathparse{\pgfmathresult*180/3.14159}\pgfmathresult},
+		ymin = 0, ytick = {0, 10, ..., 70}, ymax = 70,
+		yticklabel=\pgfmathprintnumber{\tick}\textdegree]
+		\addplot[red] table [x=m, y = mean_eff] {fig_angle_far.dat};
+		\addplot[black] table [x=m, y = mean_random] {fig_angle_far.dat};
+		\addplot[blue] table [x=m, y = mean_large] {fig_angle_far.dat};
+		\addplot[green] table [x=m, y = mean_leverage] {fig_angle_far.dat};
+	\end{axis}
+\end{tikzpicture}

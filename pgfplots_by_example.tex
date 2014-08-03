@@ -1,0 +1,40 @@
+\documentclass[nohyper]{tufte-handout}
+\usepackage{url}
+\usepackage{siunitx}
+\usepackage{jeff}
+\usepackage{moreverb}
+% colored boxes
+\usepackage{xcolor}
+\usepackage{color}
+
+\pgfplotsset{width=\textwidth,height=\textwidth}
+
+
+\urlstyle{same}
+\title{PGFPLOTS by Example}
+
+\newcommand{\plotshow}[1]{%
+	\fcolorbox{blue}{blue!20}{%
+	\begin{minipage}[t]{\textwidth}%
+		\footnotesize \verbatimtabinput[2]{#1.tex}%
+	\end{minipage}}%
+\begin{marginfigure}[1.2cm]%
+	\input{#1}%
+\end{marginfigure}%
+}
+
+\begin{document}
+
+
+\section{Ticks}
+
+\subsection{Transforming Axes}
+% http://tex.stackexchange.com/questions/134730/how-to-scale-existing-coordinates-data-in-pgfplots
+\plotshow{tick_transform}
+
+\subsection{Changing Tick Labels}
+% http://tex.stackexchange.com/questions/58566/pgfplots-in-ticks-labels
+\plotshow{tick_transform_label}
+
+\end{document}
+
